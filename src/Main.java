@@ -1,7 +1,6 @@
 import org.json.JSONObject;
 import org.json.XML;
-import Patient;
-import MappingConstants.java;
+import MappingConstants;
 
 /**
  * Main entry point for xml to json parser.
