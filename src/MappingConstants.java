@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * Constants file for mapping of states.
+ */
 public final class MappingConstants {
 
   public static Map<String, String> STATE_MAP;

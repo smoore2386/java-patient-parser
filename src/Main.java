@@ -16,7 +16,9 @@ public class Main {
    */
   public static void main(String[] args) {
     try {
+      // move from string to file
       JSONObject[] patientCollection = this.transformJSON(XML.toJSONObject(PATIENT_XML));
+      // add pretty printing to string.
       System.out.println(patientCollection.toString());
     } catch (JSONException je) {
       System.out.println(je.toString());
@@ -28,16 +30,15 @@ public class Main {
    *
    * @param patientCollection json collection of patients parsed from xml
    */
-  private transformJSON(JSONObject[] patientCollection) {
-    JSONObject[] newCollection;
+  private JSONObject[] transformJSON(JSONObject[] patientCollection) {
       for (int i = 0; i < patientCollection.length; i++) {
         patientCollection[i].put('patientid', patientCollection[i].get('id'));
         patientCollection[i].remove('id');
         patientCollection[i].put('age', this.calculateAge(patient.get('dateOfBirth')) );
         patientCollection[i].remove('dateOfBirth');
-        patientCollection[i].set('state') = MappingConstants.STATE_MAP.get('state');
-        patientCollection[i]
+        patientCollection[i].set('state') = MappingConstants.STATE_MAP.get(patientCollection[i].get('state'));
       }
+      return patientCollection
   }
 
   /**
